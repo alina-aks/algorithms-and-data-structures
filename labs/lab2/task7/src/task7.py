@@ -1,10 +1,7 @@
 import time
 start = time.perf_counter()
 
-k = open("../files/input.txt")
-n = int(k.readline())
-b = k.readline().split(" ")
-s = [int(l) for l in b ]
+from labs.lab2.utils import *
 
 def find_max_sum(list):
     max_sum = float("-inf")
@@ -23,11 +20,12 @@ def find_max_sum(list):
         return []
     return list[start_index:end_index+1]
 
-otv = str(find_max_sum(s))
-print(otv)
-
-y = open("../files/output.txt", "w")
-y.write(otv)
+def task():
+    n, s = inp('../files/input.txt')
+    res = str(find_max_sum(s))
+    outp('../files/output.txt', res)
+    print(res)
+task()
 
 stop = time.perf_counter()
 print("time: %s ms" % (stop - start))
