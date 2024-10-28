@@ -1,10 +1,7 @@
 import time
 
 start = time.perf_counter()
-
-k = open("../files/input.txt")
-n, *list1 = map(int, k.readline().split())
-k, *searchs = map(int, k.readline().split())
+from labs.lab2.utils import *
 
 def binary_search(list1, search):
     left, right = 0, len(list1) - 1
@@ -18,13 +15,17 @@ def binary_search(list1, search):
             right = mid - 1
     return -1
 
-res = [binary_search(list1,search) for search in searchs ]
-res = " ".join(map(str,res))
-print(res)
 
-y = open("../files/output.txt", "w")
-y.write(res)
-
-stop = time.perf_counter()
-print("time: %s ms" % (stop - start))
+def task():
+    n, list1, k, searchs = inp('../files/input.txt')
+    res = [binary_search(list1, search) for search in searchs]
+    res = " ".join(map(str, res))
+    outp('../files/output.txt', res)
+    print(res)
+task()
+# y = open("../files/output.txt", "w")
+# y.write(res)
+#
+# stop = time.perf_counter()
+# print("time: %s ms" % (stop - start))
 

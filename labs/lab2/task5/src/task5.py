@@ -1,10 +1,7 @@
 import time
 start = time.perf_counter()
 
-k = open("../files/input.txt")
-n = int(k.readline())
-b = k.readline().split(" ")
-list1 = [int(l) for l in b ]
+from labs.lab2.utils import *
 
 def find_max_elem(list1, left, right):
     if left == right:
@@ -26,7 +23,7 @@ def find_max_elem(list1, left, right):
        return right_elem
 
 def if_max(list1, elem):
-   if list1.count(elem) > n//2:
+   if list1.count(elem) > len(list1)//2:
        return True
    else:
        return False
@@ -38,11 +35,12 @@ def chek_max_el(list1):
     else:
         return  0
 
-otv = str(chek_max_el(list1))
-print(otv)
-
-y = open("../files/output.txt", "w")
-y.write(otv)
+def task():
+    n, list1 = inp('../files/input.txt')
+    res = str(chek_max_el(list1))
+    outp('../files/output.txt', res)
+    print(res)
+task()
 
 stop = time.perf_counter()
 print("time: %s ms" % (stop - start))
