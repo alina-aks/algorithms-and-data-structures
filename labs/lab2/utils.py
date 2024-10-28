@@ -1,8 +1,8 @@
-import time
 def inp(file_path):
     with open(file_path, "r") as k:
         t = k.readline()
-        if len(t) < 4 :
+
+        if " " not in str(t):
             n = int(t)
             b = k.readline().split(" ")
             s = [int(l) for l in b]
