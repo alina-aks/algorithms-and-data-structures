@@ -1,7 +1,9 @@
 import time
 start = time.perf_counter()
+from lab2.utils import inp, outp
 
-from labs.lab2.utils import *
+PATH_INPUT = '../files/input.txt'
+PATH_OUTPUT = '../files/output.txt'
 
 def find_max_sum(list):
     max_sum = float("-inf")
@@ -20,12 +22,12 @@ def find_max_sum(list):
         return []
     return list[start_index:end_index+1]
 
-def task():
-    n, s = inp('../files/input.txt')
+def task7():
+    n, s = inp(PATH_INPUT)
     res = str(find_max_sum(s))
-    outp('../files/output.txt', res)
-    print(res)
-task()
+    outp(PATH_OUTPUT, res)
 
-stop = time.perf_counter()
-print("time: %s ms" % (stop - start))
+if __name__ == "__main__":
+    start = time.perf_counter()
+    task7()
+    print(f"Time: {time.perf_counter() - start}")

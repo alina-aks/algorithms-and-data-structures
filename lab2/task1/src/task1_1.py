@@ -1,6 +1,8 @@
 import time
-start = time.perf_counter()
-from labs.lab2.utils import *
+from lab2.utils import inp, outp
+
+PATH_INPUT = '../files/input.txt'
+PATH_OUTPUT = '../files/output.txt'
 
 def merge(list1, list2):
     sorted_list = []
@@ -29,13 +31,13 @@ def merge_sort(list):
     list1 = merge_sort(list[:mid])
     list2 = merge_sort(list[mid:])
     return merge(list1, list2)
-def task():
-    n, s = inp('../files/input.txt')
+
+def task1():
+    n, s = inp(PATH_INPUT)
     res = str(merge_sort(s))
-    outp('../files/output.txt', res)
-    print(merge_sort(s))
+    outp(PATH_OUTPUT, res)
 
-task()
-
-stop = time.perf_counter()
-print("time: %s ms" % (stop - start))
+if __name__ == "__main__":
+    start = time.perf_counter()
+    task1()
+    print(f"Time: {time.perf_counter() - start}")

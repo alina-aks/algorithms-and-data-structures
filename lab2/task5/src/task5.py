@@ -1,7 +1,9 @@
 import time
 start = time.perf_counter()
+from lab2.utils import inp, outp
 
-from labs.lab2.utils import *
+PATH_INPUT = '../files/input.txt'
+PATH_OUTPUT = '../files/output.txt'
 
 def find_max_elem(list1, left, right):
     if left == right:
@@ -35,12 +37,12 @@ def chek_max_el(list1):
     else:
         return  0
 
-def task():
-    n, list1 = inp('../files/input.txt')
+def task5():
+    n, list1 = inp(PATH_INPUT)
     res = str(chek_max_el(list1))
-    outp('../files/output.txt', res)
-    print(res)
-task()
+    outp(PATH_OUTPUT, res)
 
-stop = time.perf_counter()
-print("time: %s ms" % (stop - start))
+if __name__ == "__main__":
+    start = time.perf_counter()
+    task5()
+    print(f"Time: {time.perf_counter() - start}")
