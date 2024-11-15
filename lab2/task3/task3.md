@@ -34,5 +34,5 @@
 
 4. Запуск тестов:
    ```bash
-   python src/tesk3.py
+   python src/test3.py
    ```
