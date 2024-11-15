@@ -38,4 +38,4 @@
 > for script in lab*/*/src/*.py; do PYTHONPATH=$(pwd) python "$script"; done
 
 4. Запуск тестов
-> for script in lab*/*/tests/*.py; do PYTHONPATH=$(pwd) python "$script"; done
+> python -m unittest discover -v
