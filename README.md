@@ -29,6 +29,11 @@
 1. Клонирование репозитория:
 > git clone https://github.com/alina-aks/algorithms-and-data-structures.git
 
-2. Запуск тестов
-> - Найти папку /tests в репозиторие
-> - Запустить необходимый тест
+2. Перейдите в папку с проектом:
+> cd algorithms-and-data-structures
+
+3. Запуск всех лабораторных:
+> for script in lab*/*/src/*.py; do PYTHONPATH=$(pwd) python "$script"; done
+
+4. Запуск тестов
+> for script in lab*/*/tests/*.py; do PYTHONPATH=$(pwd) python "$script"; done
