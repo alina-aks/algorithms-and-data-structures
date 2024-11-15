@@ -4,44 +4,61 @@ from lab2.task3.src.task3 import count_inverse
 
 
 class TestCountInversion(unittest.TestCase):
+
     def test_should_count_inversions1(self):
-        # Given
-        n = 6
+        # given
         list1 = [1, 3, 5, 2, 4, 6]
+        n = len(list1)
+        expect_result = 3
+        expected_time = 4
 
-        # When
-        start_time = datetime.datetime.now()  # Запускаем счётчик времени
-        count_inverse(n, list1)
-        finish_time = datetime.datetime.now()  # Измеряем время конца работы
-        print("Тест1.Итоговое время алгоритма:", finish_time - start_time)
+        # when
+        start_time = datetime.datetime.now()
+        result = count_inverse(n, list1)
+        finish_time = datetime.datetime.now()
+        result_time = finish_time - start_time
+        print("Тест1.Итоговое время алгоритма:", result_time)
 
-        # Then
-        self.assertEqual(count_inverse(n, list1), 3)
+        # then
+        self.assertEqual(result, expect_result)
+        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
 
     def test_should_count_inversions2(self):
-        # Given
-        n = 10
+        # given
         list1 = [1, 8, 2, 1, 4, 7, 3, 2, 3, 6]
+        n = len(list1)
+        expect_result = 17
+        expected_time = 4
 
-        # When
-        start_time = datetime.datetime.now()  # Запускаем счётчик времени
-        count_inverse(n, list1)
-        finish_time = datetime.datetime.now()  # Измеряем время конца работы
-        print("Тест2.Итоговое время алгоритма:", finish_time - start_time)
+        # when
+        start_time = datetime.datetime.now()
+        result = count_inverse(n, list1)
+        finish_time = datetime.datetime.now()
+        result_time = finish_time - start_time
+        print("Тест2.Итоговое время алгоритма:", result_time)
 
-        # Then
-        self.assertEqual(count_inverse(n, list1), 17)
+        # then
+        self.assertEqual(result, expect_result)
+        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
 
     def test_should_count_inversions_when_array_is_reversed(self):
         # Given
         list1 = [i for i in range(1000,0,-1)]
         n = len(list1)
 
-        # When
-        start_time = datetime.datetime.now()  # Запускаем счётчик времени
-        count_inverse(n, list1)
-        finish_time = datetime.datetime.now()  # Измеряем время конца работы
-        print("Тест3.Итоговое время алгоритма:", finish_time - start_time)
+        # given
+        list1 = [i for i in range(1000,0,-1)]
+        n = len(list1)
+        expect_result = 499500
+        expected_time = 4
 
-        # Then
-        self.assertEqual(count_inverse(len(list1), list1), 499500)
+        # when
+        start_time = datetime.datetime.now()
+        result = count_inverse(n, list1)
+        finish_time = datetime.datetime.now()
+        result_time = finish_time - start_time
+        print("Тест3.Итоговое время алгоритма:", result_time)
+
+        # then
+        self.assertEqual(result, expect_result)
+        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
