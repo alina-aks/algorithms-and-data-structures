@@ -28,8 +28,3 @@
    ```bash
    python src/task1.py
    ```
-
-4. Запуск тестов:
-   ```bash
-   python src/tesk1_1.py
-   ```
