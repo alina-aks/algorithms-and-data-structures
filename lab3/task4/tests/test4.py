@@ -1,19 +1,24 @@
 import unittest
+import random
 import datetime
 from time import perf_counter
-from lab2.task5.src.task5 import chek_max_el
+from lab3.task4.src.task4 import lottery
 
-class TestFindMax(unittest.TestCase):
-    print("Lab2 task5 test")
-    def test_should_give_zero(self):
+class TestSegmentsCount(unittest.TestCase):
+    print("Lab3 task4 test")
+    def test_should_count_segments1(self):
         # given
-        list1 = [1, 2, 3, 4]
-        expect_result = 0
-        expected_time = 4
+        s = 2
+        p = 3
+        seg = [[0, 5], [7, 10]]
+        pont = [1, 6, 11]
+
+        expect_result = [1, 0, 0]
+        expected_time = 2
 
         # when
         start_time = datetime.datetime.now()
-        result = chek_max_el(list1)
+        result = lottery(s,p,seg,pont)
         finish_time = datetime.datetime.now()
         result_time = finish_time - start_time
         print("Тест1.Итоговое время алгоритма:", result_time)
@@ -22,18 +27,19 @@ class TestFindMax(unittest.TestCase):
         self.assertEqual(result, expect_result)
         self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
-    def test1_should_give_one(self):
-        # Given
-        list1 = [2, 3, 9, 2, 2]
-
+    def test_should_count_segments2(self):
         # given
-        list1 = [2, 3, 9, 2, 2]
-        expect_result = 1
-        expected_time = 4
+        s = 1
+        p = 3
+        seg = [[-10, 10]]
+        pont = [-100, 100, 0]
+
+        expect_result = [0, 0, 1]
+        expected_time = 2
 
         # when
         start_time = datetime.datetime.now()
-        result = chek_max_el(list1)
+        result = lottery(s,p,seg,pont)
         finish_time = datetime.datetime.now()
         result_time = finish_time - start_time
         print("Тест2.Итоговое время алгоритма:", result_time)
@@ -42,25 +48,27 @@ class TestFindMax(unittest.TestCase):
         self.assertEqual(result, expect_result)
         self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
-    def test2_should_give_one(self):
-        # Given
-        list1 = [3, 6, 1, 3 ,6 ,3, 3, 3]
-
+    def test_should_count_segments3(self):
         # given
-        list1 = [3, 6, 1, 3 ,6 ,3, 3, 3]
-        expect_result = 1
-        expected_time = 4
+        s = 3
+        p = 2
+        seg = [[0, 5],[-3, 2],[7, 10]]
+        pont = [1, 6]
+
+        expect_result = [2, 0]
+        expected_time = 2
 
         # when
         start_time = datetime.datetime.now()
-        result = chek_max_el(list1)
+        result = lottery(s,p,seg,pont)
         finish_time = datetime.datetime.now()
         result_time = finish_time - start_time
-        print("Тест1.Итоговое время алгоритма:", result_time)
+        print("Тест3.Итоговое время алгоритма:", result_time)
 
         # then
         self.assertEqual(result, expect_result)
         self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

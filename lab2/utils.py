@@ -1,4 +1,7 @@
+import_path = "../files/"
+
 def inp(file_path):
+    file_path = import_path + "input.txt"
     with open(file_path, "r") as k:
         t = k.readline()
         if " " in str(t):
@@ -12,6 +15,7 @@ def inp(file_path):
             return (n, s)
 
 def outp(file_path, res):
+    file_path = import_path + "output.txt"
     with open(file_path, "w") as k:
         k.write(res)
 

@@ -29,7 +29,7 @@
    ```
 3. Запустите программу:
    ```bash
-   python src/task3.py
+   python src/task4.py
    ```
 
 4. Запуск тестов:

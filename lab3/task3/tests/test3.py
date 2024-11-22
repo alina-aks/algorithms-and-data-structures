@@ -1,21 +1,22 @@
 import unittest
+import random
 import datetime
 from time import perf_counter
-from lab2.task3.src.task3 import count_inverse
+from lab3.task3.src.task3 import dolls
 
-
-class TestCountInversion(unittest.TestCase):
-    print("Lab2 task3 test")
-    def test_should_count_inversions1(self):
+class TestDolls(unittest.TestCase):
+    print("Lab3 task3 test")
+    def test_should_sort_list1(self):
         # given
-        list1 = [1, 3, 5, 2, 4, 6]
-        n = len(list1)
-        expect_result = 3
-        expected_time = 4
+        n = 3
+        k = 2
+        list1 = [2, 1, 3]
+        expect_result = "НЕТ"
+        expected_time = 2
 
         # when
         start_time = datetime.datetime.now()
-        result = count_inverse(n, list1)
+        result = dolls(n, k, list1)
         finish_time = datetime.datetime.now()
         result_time = finish_time - start_time
         print("Тест1.Итоговое время алгоритма:", result_time)
@@ -24,16 +25,17 @@ class TestCountInversion(unittest.TestCase):
         self.assertEqual(result, expect_result)
         self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
-    def test_should_count_inversions2(self):
+    def test_should_sort_list2(self):
         # given
-        list1 = [1, 8, 2, 1, 4, 7, 3, 2, 3, 6]
-        n = len(list1)
-        expect_result = 17
-        expected_time = 4
+        n = 5
+        k = 3
+        list1 = [1, 5, 3, 4, 1]
+        expect_result = "ДА"
+        expected_time = 2
 
         # when
         start_time = datetime.datetime.now()
-        result = count_inverse(n, list1)
+        result = dolls(n, k, list1)
         finish_time = datetime.datetime.now()
         result_time = finish_time - start_time
         print("Тест2.Итоговое время алгоритма:", result_time)
@@ -42,20 +44,18 @@ class TestCountInversion(unittest.TestCase):
         self.assertEqual(result, expect_result)
         self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
-    def test_should_count_inversions_when_array_is_reversed(self):
-        # Given
-        list1 = [i for i in range(1000,0,-1)]
-        n = len(list1)
 
+    def test_should_sort_large_sorted_list(self):
         # given
-        list1 = [i for i in range(1000,0,-1)]
-        n = len(list1)
-        expect_result = 499500
-        expected_time = 4
+        n = 100_000
+        k = 2
+        list1 = list(range(1, n + 1))
+        expect_result = "ДА"
+        expected_time = 2
 
         # when
         start_time = datetime.datetime.now()
-        result = count_inverse(n, list1)
+        result = dolls(n, k, list1)
         finish_time = datetime.datetime.now()
         result_time = finish_time - start_time
         print("Тест3.Итоговое время алгоритма:", result_time)
@@ -64,5 +64,25 @@ class TestCountInversion(unittest.TestCase):
         self.assertEqual(result, expect_result)
         self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
-if __name__ == '__main__':
+
+    def test_should_sort_large_random_list(self):
+        # given
+        n = 100_000
+        k = 3
+        list1 = random.sample(range(1, n + 1), n)
+        expect_result = "НЕТ"
+        expected_time = 2
+
+        # when
+        start_time = datetime.datetime.now()
+        result = dolls(n, k, list1)
+        finish_time = datetime.datetime.now()
+        result_time = finish_time - start_time
+        print("Тест4.Итоговое время алгоритма:", result_time)
+
+        # then
+        self.assertEqual(result, expect_result)
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
+
+if __name__ == "__main__":
     unittest.main()
