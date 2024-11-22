@@ -36,6 +36,5 @@
 
 3. Запуск всех лабораторных:
 > for script in lab*/*/src/*.py; do PYTHONPATH=$(pwd) python "$script"; done
-
 4. Запуск тестов
 > for test in lab*/*/tests/*.py; do PYTHONPATH=$(pwd) python "$test"; done
