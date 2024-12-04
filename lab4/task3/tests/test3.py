@@ -3,9 +3,10 @@ import random
 import datetime
 from time import perf_counter
 from lab4.task3.src.task3 import is_valid_sequence
+task_numb = 3
 
 class TestStack(unittest.TestCase):
-    print("Lab4 task3 test")
+    print(f"Lab4 task{task_numb} test")
     def test_should_check_sequence1(self):
         # given
         s1 = "()()"

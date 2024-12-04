@@ -11,18 +11,34 @@ PATH_OUTPUT = os.path.join('..', '..', 'files', 'output.txt')
 task_numb = 1
 
 
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def push(self, value):
+        self.stack.append(value)
+
+    def pop(self):
+        return self.stack.pop()
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+
 def process_stack_commands(commands):
-    stack = []
+    stack = Stack()
     output = []
 
     for command in commands:
         command = command.strip()
         if command.startswith('+'):
             _, value = command.split()
-            stack.append(int(value))
+            stack.push(int(value))
         elif command == '-':
-            output.append(stack.pop())
+            if not stack.is_empty():
+                output.append(stack.pop())
     return output
+
 
 def task1():
     m, commands = inp(PATH_INPUT,0,'task1')

@@ -3,9 +3,10 @@ import random
 import datetime
 from time import perf_counter
 from lab4.task8.src.task8 import postfix
+task_numb = 8
 
 class TestStack(unittest.TestCase):
-    print("Lab4 task8 test")
+    print(f"Lab4 task{task_numb} test")
     def test_should_print_postfix_result(self):
         # given
         n = 7

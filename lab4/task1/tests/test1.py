@@ -3,9 +3,10 @@ import random
 import datetime
 from time import perf_counter
 from lab4.task1.src.task1 import process_stack_commands
+task_numb = 1
 
 class TestStack(unittest.TestCase):
-    print("Lab4 task1 test")
+    print(f"Lab4 task{task_numb} test")
     def test_should_print_deleted_numbs(self):
         # given
         c = ["+ 1", "+ 10", "-" ,"+ 2", "+ 1234", "-"]
