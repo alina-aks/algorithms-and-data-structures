@@ -27,7 +27,7 @@
    ```
 2. Перейдите в папку с проектом:
    ```bash
-   cd algorithms-and-data-structures/lab4
+   cd algorithms-and-data-structures/lab5
    ```
 3. Запустите программу:
    ```bash
