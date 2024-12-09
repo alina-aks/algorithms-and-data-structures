@@ -17,18 +17,16 @@ class Stack:
 
     def pop(self):
         if self.isEmpty():
-            raise IndexError("pop from empty stack")
+            raise IndexError("ошибка")
         value = self.top.value
         self.top = self.top.next
         return value
 
     def printstack(self):
         if self.isEmpty():
-            print('Stack is Empty')
-            return
-        curr = self.top
-        print("Stack is:", end=' ')
-        while curr is not None:
-            print(curr.value, end=' ')
-            curr = curr.next
-        print()
+            print('Стек пустой')
+        else:
+            curr = self.top
+            while curr:
+                print(curr.value)
+                curr = curr.next
