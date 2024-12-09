@@ -5,7 +5,6 @@ from time import perf_counter
 from lab3.task4.src.task4 import lottery
 
 class TestSegmentsCount(unittest.TestCase):
-    print("Lab3 task4 test")
     def test_should_count_segments1(self):
         # given
         s = 2

@@ -5,7 +5,6 @@ from time import perf_counter
 from lab3.task2.src.task2 import anti_quick_sort
 
 class TestQuickSort(unittest.TestCase):
-    print("Lab3 task2 test")
     def test_should_create_check_permutation_of_n_nums(self):
         # given
         n = 3

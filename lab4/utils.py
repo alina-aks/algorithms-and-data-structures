@@ -18,9 +18,9 @@ def inp(file_path, start_line=0, *args):
 
 def caption(taskN, res):
     if isinstance(res, float):
-        a =f"LAB4 Task{taskN} Time: {res}"
+        a = (f"Time: {res}"+"\n")+"--"*15+"\n"
     else:
-        a = f"LAB4 Task{taskN} answer: {res}"
+        a = "--"*15+"\n"+(f"LAB5 Task {taskN}\n")+(f"Output: \n{res}\n")
     return a
 
 

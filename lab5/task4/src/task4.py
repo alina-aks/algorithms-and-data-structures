@@ -7,8 +7,6 @@ os.chdir(current_script_dir)
 
 PATH_INPUT = os.path.join('..', '..', 'files', 'input.txt')
 PATH_OUTPUT = os.path.join('..', '..', 'files', 'output.txt')
-task_numb = 4
-
 
 def heapify(arr, n, i, swaps):
     smallest = i
@@ -41,12 +39,14 @@ def task1():
     swaps = build_heap(arr)
     res = str(len(swaps)) + "\n"
     res += "\n".join(f"{swap[0]} {swap[1]}" for swap in swaps)
-    outp(PATH_OUTPUT, res.strip())
-    print(caption(task_numb, res.strip()))
+    global task_numb
+    task_numb = 4
+    outp(PATH_OUTPUT, res)
+    print(caption(task_numb, res))
 
 
 if __name__ == "__main__":
     start = time.perf_counter()
     task1()
-    elapsed_time = time.perf_counter() - start
-    print(caption(task_numb, elapsed_time))
+    time = float(time.perf_counter() - start)
+    print(caption(task_numb, time))

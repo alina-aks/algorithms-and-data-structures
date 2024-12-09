@@ -4,10 +4,7 @@ import datetime
 from time import perf_counter
 from lab5.task7.src.task7 import heap_sort
 
-task_numb = 7
-
 class TestHeap(unittest.TestCase):
-    print(f"Lab5 task{task_numb} test")
     def test_should_sort_small_list(self):
         # given
         n = 5

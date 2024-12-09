@@ -8,7 +8,6 @@ os.chdir(current_script_dir)
 
 PATH_INPUT = os.path.join('..', '..', 'files', 'input.txt')
 PATH_OUTPUT = os.path.join('..', '..', 'files', 'output.txt')
-task_numb = 1
 
 
 class Stack:
@@ -43,8 +42,11 @@ def process_stack_commands(commands):
 def task1():
     m, commands = inp(PATH_INPUT,0,'task1')
     res = str(process_stack_commands(commands))
+    global task_numb
+    task_numb = 1
     outp(PATH_OUTPUT, res)
     print(caption(task_numb, res))
+
 
 if __name__ == "__main__":
     start = time.perf_counter()

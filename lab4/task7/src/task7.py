@@ -8,7 +8,6 @@ os.chdir(current_script_dir)
 
 PATH_INPUT = os.path.join('..', '..', 'files', 'input.txt')
 PATH_OUTPUT = os.path.join('..', '..', 'files', 'output.txt')
-task_numb = 7
 
 def moving_equence_maximum(n, s, m):
     q = []
@@ -27,11 +26,14 @@ def moving_equence_maximum(n, s, m):
 def task1():
     n, s, m = inp(PATH_INPUT, 0, 'task7')
     res = str(moving_equence_maximum(n, s, m))
+    global task_numb
+    task_numb = 7
     outp(PATH_OUTPUT, res)
     print(caption(task_numb, res))
+
 
 if __name__ == "__main__":
     start = time.perf_counter()
     task1()
     time = float(time.perf_counter() - start)
-    print(caption( task_numb, time))
+    print(caption(task_numb, time))

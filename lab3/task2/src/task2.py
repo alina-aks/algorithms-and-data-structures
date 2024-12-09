@@ -1,7 +1,7 @@
 import time
 import random
 import os
-from lab3.utils import inp, outp
+from lab3.utils import inp, outp, caption
 
 current_script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(current_script_dir)
@@ -19,10 +19,14 @@ def anti_quick_sort(n):
 def task1():
     n = inp(PATH_INPUT,0,'task2')
     res = str(anti_quick_sort(n))
-    print("LAB3 Task2 answer:", res)
+    global task_numb
+    task_numb = 2
     outp(PATH_OUTPUT, res)
+    print(caption(task_numb, res))
+
 
 if __name__ == "__main__":
     start = time.perf_counter()
     task1()
-    print(f"LAB3 Task2 Time: {time.perf_counter() - start}")
+    time = float(time.perf_counter() - start)
+    print(caption(task_numb, time))

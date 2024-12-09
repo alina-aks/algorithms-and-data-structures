@@ -1,10 +1,10 @@
 import time
 import random
 import os
-from lab3.utils import inp, outp
+from lab3.utils import inp, outp, caption
 
-current_script_dir = os.path.dirname(os.path.abspath(__file__))
-os.chdir(current_script_dir)
+CURRENT_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+os.chdir(CURRENT_SCRIPT_DIR)
 
 PATH_INPUT = os.path.join('..', '..', 'files', 'input.txt')
 PATH_OUTPUT = os.path.join('..', '..', 'files', 'output.txt')
@@ -42,11 +42,15 @@ def partition3(A, left, right):
 def task1():
     n, s = inp(PATH_INPUT,0,0)
     res = str(random_quick_sort(s, 0, n-1))
-    print("LAB3 Task1 answer:", res)
+    global task_numb
+    task_numb = 1
     outp(PATH_OUTPUT, res)
+    print(caption(task_numb, res))
+
 
 if __name__ == "__main__":
     start = time.perf_counter()
     task1()
-    print(f"LAB3 Task1 Time: {time.perf_counter() - start}")
+    time = float(time.perf_counter() - start)
+    print(caption(task_numb, time))
 

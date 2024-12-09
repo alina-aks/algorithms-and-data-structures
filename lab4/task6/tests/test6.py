@@ -3,10 +3,8 @@ import random
 import datetime
 from time import perf_counter
 from lab4.task6.src.task6 import process_commands
-task_numb = 6
 
 class TestStack(unittest.TestCase):
-    print(f"Lab4 task{task_numb} test")
     def test_should_print_min_elem_of_queue1(self):
         # given
         list1 = ['+1', '?', '+ 10', '?', '-', '?', '-']

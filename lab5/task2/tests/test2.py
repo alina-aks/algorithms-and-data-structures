@@ -3,10 +3,7 @@ import random
 import datetime
 from time import perf_counter
 from lab5.task2.src.task2 import tree_height
-task_numb = 2
-
 class TestPyramid(unittest.TestCase):
-    print(f"Lab5 task{task_numb} test")
     def test_should_count_tree_height(self):
         # given
         n = 5

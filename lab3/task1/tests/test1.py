@@ -5,7 +5,6 @@ from time import perf_counter
 from lab3.task1.src.task1 import random_quick_sort
 
 class TestQuickSort(unittest.TestCase):
-    print("Lab3 task1 test")
     def test_should_sort_standart_list(self):
         # given
         list1 = [2, 3, 9, 2, 2]

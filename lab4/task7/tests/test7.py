@@ -3,10 +3,8 @@ import random
 import datetime
 from time import perf_counter
 from lab4.task7.src.task7 import moving_equence_maximum
-task_numb = 7
 
 class TestStack(unittest.TestCase):
-    print(f"Lab4 task{task_numb} test")
     def test_should_print_max_subsequence_of_moving_equence(self):
         # given
         n = 8

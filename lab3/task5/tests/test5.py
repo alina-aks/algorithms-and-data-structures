@@ -5,7 +5,6 @@ from time import perf_counter
 from lab3.task5.src.task5 import index_harsh
 
 class TestIndexHarsh(unittest.TestCase):
-    print("Lab3 task5 test")
     def test_should_find_h_index1(self):
         # given
         list1 = [3,0,6,1,5]

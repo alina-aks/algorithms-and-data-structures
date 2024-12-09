@@ -8,7 +8,6 @@ os.chdir(current_script_dir)
 
 PATH_INPUT = os.path.join('..', '..', 'files', 'input.txt')
 PATH_OUTPUT = os.path.join('..', '..', 'files', 'output.txt')
-task_numb = 2
 
 
 def tree_height(n, parents):
@@ -33,11 +32,14 @@ def tree_height(n, parents):
 def task1():
     n, s = inp(PATH_INPUT)
     res = str(tree_height(n, s))
+    global task_numb
+    task_numb = 2
     outp(PATH_OUTPUT, res)
     print(caption(task_numb, res))
+
 
 if __name__ == "__main__":
     start = time.perf_counter()
     task1()
     time = float(time.perf_counter() - start)
-    print(caption( task_numb, time))
+    print(caption(task_numb, time))

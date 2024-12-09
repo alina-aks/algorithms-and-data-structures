@@ -7,7 +7,6 @@ os.chdir(current_script_dir)
 
 PATH_INPUT = os.path.join('..', '..', 'files', 'input.txt')
 PATH_OUTPUT = os.path.join('..', '..', 'files', 'output.txt')
-task_numb = 7
 
 def heapify(arr, n, i):
     largest = i
@@ -38,6 +37,8 @@ def heap_sort(arr):
 def task1():
     n, s = inp(PATH_INPUT)
     res = str(heap_sort(s))
+    global task_numb
+    task_numb = 7
     outp(PATH_OUTPUT, res)
     print(caption(task_numb, res))
 
@@ -45,6 +46,5 @@ def task1():
 if __name__ == "__main__":
     start = time.perf_counter()
     task1()
-    elapsed_time = time.perf_counter() - start
-    print(caption(task_numb, elapsed_time))
-
+    time = float(time.perf_counter() - start)
+    print(caption(task_numb, time))

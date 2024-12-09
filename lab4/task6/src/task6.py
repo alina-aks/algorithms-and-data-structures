@@ -8,7 +8,6 @@ os.chdir(current_script_dir)
 
 PATH_INPUT = os.path.join('..', '..', 'files', 'input.txt')
 PATH_OUTPUT = os.path.join('..', '..', 'files', 'output.txt')
-task_numb = 6
 
 
 def process_commands(commands):
@@ -36,11 +35,15 @@ def process_commands(commands):
 
 def task1():
     m, commands = inp(PATH_INPUT, 0, 'task6')
-    res = process_commands(commands)
-    outp(PATH_OUTPUT, "\n".join(res))
-    print(caption(task_numb, "\n".join(res)))
+    res = str(process_commands(commands))
+    global task_numb
+    task_numb = 6
+    outp(PATH_OUTPUT, res)
+    print(caption(task_numb, res))
+
+
 if __name__ == "__main__":
     start = time.perf_counter()
     task1()
     time = float(time.perf_counter() - start)
-    print(caption( task_numb, time))
+    print(caption(task_numb, time))

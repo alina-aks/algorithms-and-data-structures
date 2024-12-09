@@ -7,7 +7,6 @@ task_numb = "13_1"
 
 class TestStack(unittest.TestCase):
     start_time = datetime.datetime.now()
-    print(f"Lab4 task{task_numb} test")
     def setUp(self):
         self.stack = Stack()
 

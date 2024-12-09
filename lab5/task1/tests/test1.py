@@ -3,10 +3,8 @@ import random
 import datetime
 from time import perf_counter
 from lab5.task1.src.task1 import Pyramid
-task_numb = 1
 
 class TestPyramid(unittest.TestCase):
-    print(f"Lab5 task{task_numb} test")
     def test_should_identify_pyramid(self):
         # given
         n = 5

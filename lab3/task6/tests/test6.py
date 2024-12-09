@@ -5,7 +5,6 @@ from time import perf_counter
 from lab3.task6.src.task6 import sorting_integers
 
 class TestIndexHarsh(unittest.TestCase):
-    print("Lab3 task6 test")
     def test_should_count_sum_of_tenths_example(self):
         # given
         listA = [7, 1, 4, 9]

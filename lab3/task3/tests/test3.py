@@ -5,7 +5,6 @@ from time import perf_counter
 from lab3.task3.src.task3 import dolls
 
 class TestDolls(unittest.TestCase):
-    print("Lab3 task3 test")
     def test_should_sort_list1(self):
         # given
         n = 3
