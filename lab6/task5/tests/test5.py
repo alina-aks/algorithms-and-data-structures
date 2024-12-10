@@ -1,21 +1,18 @@
 import unittest
-import random
 import datetime
-from time import perf_counter
-from lab5.task1.src.task1 import Pyramid
-from lab5.task4.src.task4 import build_heap
+from lab6.task5.src.task5 import count_votes
 
-class TestHeap(unittest.TestCase):
-    def test_should_count_swaps(self):
+class TestVoteCounter(unittest.TestCase):
+
+    def test_should_print_count_of_votes(self):
         # given
-        n = 5
-        list1 = [5, 4, 3, 2, 1]
-        expect_result = [(1, 4), (0, 1), (1, 3)]
+        list1 = ['McCain 10', 'McCain 5', 'Obama 9', 'Obama 8', 'McCain 1']
+        expect_result = {'McCain': 16, 'Obama': 17}
         expected_time = 2
 
         # when
         start_time = datetime.datetime.now()
-        result = build_heap(list1)
+        result = count_votes(list1)
         finish_time = datetime.datetime.now()
         result_time = finish_time - start_time
         print("Тест1.Итоговое время алгоритма:", result_time)
@@ -24,16 +21,15 @@ class TestHeap(unittest.TestCase):
         self.assertEqual(result, expect_result)
         self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
-    def test_should_count_swaps2(self):
+    def test_should_print_count_of_votes2(self):
         # given
-        n = 5
-        list1 = [1, 2, 3, 4, 5]
-        expect_result = []
+        list1 = ['ivanov 100', 'ivanov 500', 'ivanov 300', 'petr 70', 'tourist 1', 'tourist 2']
+        expect_result = {'ivanov': 900, 'petr': 70, 'tourist': 3}
         expected_time = 2
 
         # when
         start_time = datetime.datetime.now()
-        result = build_heap(list1)
+        result = count_votes(list1)
         finish_time = datetime.datetime.now()
         result_time = finish_time - start_time
         print("Тест2.Итоговое время алгоритма:", result_time)
@@ -42,37 +38,18 @@ class TestHeap(unittest.TestCase):
         self.assertEqual(result, expect_result)
         self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
-    def test_should_count_swaps_empty(self):
+    def test_should_print_count_of_votes3(self):
         # given
-        n = 1
-        list1 = [10]
-        expect_result = []
+        list1 = ['bur 1']
+        expect_result ={'bur': 1}
         expected_time = 2
 
         # when
         start_time = datetime.datetime.now()
-        result = build_heap(list1)
+        result = count_votes(list1)
         finish_time = datetime.datetime.now()
         result_time = finish_time - start_time
         print("Тест3.Итоговое время алгоритма:", result_time)
-
-        # then
-        self.assertEqual(result, expect_result)
-        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
-
-    def test_should_count_no_swaps(self):
-        # given
-        n = 5
-        list1 = [1, 2, 3, 4, 5]
-        expect_result = []
-        expected_time = 2
-
-        # when
-        start_time = datetime.datetime.now()
-        result = build_heap(list1)
-        finish_time = datetime.datetime.now()
-        result_time = finish_time - start_time
-        print("Тест4.Итоговое время алгоритма:", result_time)
 
         # then
         self.assertEqual(result, expect_result)
