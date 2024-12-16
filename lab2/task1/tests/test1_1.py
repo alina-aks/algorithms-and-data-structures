@@ -5,7 +5,7 @@ from time import perf_counter
 from lab2.task1.src.task1_1 import merge_sort
 
 class TestMergeSort(unittest.TestCase):
-
+    print("Lab2 task1 test")
     def test_should_sort_sorted_list(self):
         # given
         list1 = [1, 2, 3, 4, 5]
@@ -21,7 +21,7 @@ class TestMergeSort(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
     def test_should_sort_list(self):
         # Given
@@ -38,7 +38,7 @@ class TestMergeSort(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
     def test_should_sort_large_list(self):
         # given
@@ -56,7 +56,7 @@ class TestMergeSort(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
     def test_should_sort_large_sorted_list(self):
         # given
@@ -73,7 +73,7 @@ class TestMergeSort(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
 
 if __name__ == "__main__":

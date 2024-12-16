@@ -1,10 +1,11 @@
 import unittest
 import datetime
+from time import perf_counter
 from lab2.task3.src.task3 import count_inverse
 
 
 class TestCountInversion(unittest.TestCase):
-
+    print("Lab2 task3 test")
     def test_should_count_inversions1(self):
         # given
         list1 = [1, 3, 5, 2, 4, 6]
@@ -21,7 +22,7 @@ class TestCountInversion(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
     def test_should_count_inversions2(self):
         # given
@@ -39,7 +40,7 @@ class TestCountInversion(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
     def test_should_count_inversions_when_array_is_reversed(self):
         # Given
@@ -61,4 +62,7 @@ class TestCountInversion(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
+
+if __name__ == '__main__':
+    unittest.main()

@@ -1,9 +1,13 @@
 import time
+import os
 start = time.perf_counter()
 from lab2.utils import inp, outp
 
-PATH_INPUT = '../files/input.txt'
-PATH_OUTPUT = '../files/output.txt'
+current_script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(current_script_dir)
+
+PATH_INPUT = os.path.join('..', '..', 'files', 'input.txt')
+PATH_OUTPUT = os.path.join('..', '..', 'files', 'output.txt')
 
 def binary_search(list1, search):
     left, right = 0, len(list1) - 1
@@ -21,6 +25,7 @@ def task4():
     n, list1, k, searchs = inp(PATH_INPUT)
     res = [binary_search(list1, search) for search in searchs]
     res = " ".join(map(str, res))
+    print("LAB2 Task4 answer:", res)
     outp(PATH_OUTPUT, res)
 
 if __name__ == "__main__":

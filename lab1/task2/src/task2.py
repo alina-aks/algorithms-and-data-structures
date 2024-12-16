@@ -1,10 +1,19 @@
 import time
+import os
+
+current_script_dir = os.path.dirname(os.path.abspath(__file__))
+
+input_path = os.path.join(current_script_dir, "..", "tests", "input.txt")
+output_path = os.path.join(current_script_dir, "..", "tests", "output.txt")
+
 start = time.perf_counter()
 
-k = open("../tests/input.txt")
-numb = int(k.readline())
-b = k.readline().split(" ")
-s = [int(l) for l in b ]
+# Открываем файл для чтения
+with open(input_path, "r") as k:
+    numb = int(k.readline())  # Читаем количество элементов
+    b = k.readline().split(" ")  # Читаем сам список
+    s = [int(l) for l in b]  # Преобразуем в список целых чисел
+
 index = [1]
 for i in range(1, numb):
     elem = s[i]
@@ -18,12 +27,11 @@ for i in range(1, numb):
 otv = " ".join(str(t) for t in s)
 list_ind = " ".join(str(o) for o in index)
 
-print("Новые индексы:         ",list_ind)
-print('Отсортированный список:', otv)
+print("LAB3 Task1 answer:", otv)
 
-y = open("../tests/output.txt", "w")
+y = open(output_path, "w")
 y.write(list_ind+"\n")
 y.write(otv)
 
 stop = time.perf_counter()
-print("time: %s ms" % (stop - start))
+print(f"LAB1 Task2 Time: {time.perf_counter() - start}")

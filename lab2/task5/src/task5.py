@@ -1,9 +1,13 @@
 import time
+import os
 start = time.perf_counter()
 from lab2.utils import inp, outp
 
-PATH_INPUT = '../files/input.txt'
-PATH_OUTPUT = '../files/output.txt'
+current_script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(current_script_dir)
+
+PATH_INPUT = os.path.join('..', '..', 'files', 'input.txt')
+PATH_OUTPUT = os.path.join('..', '..', 'files', 'output.txt')
 
 def find_max_elem(list1, left, right):
     if left == right:
@@ -40,6 +44,7 @@ def chek_max_el(list1):
 def task5():
     n, list1 = inp(PATH_INPUT)
     res = str(chek_max_el(list1))
+    print("LAB2 Task5 answer:", res)
     outp(PATH_OUTPUT, res)
 
 if __name__ == "__main__":

@@ -4,7 +4,7 @@ from time import perf_counter
 from lab2.task4.src.task4 import binary_search
 
 class TestBinarySearch(unittest.TestCase):
-
+    print("Lab2 task4 test")
     def test_should_return_index_when_element_is_found(self):
         # given
         list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -21,7 +21,7 @@ class TestBinarySearch(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
     def test_should_return_negative_one_when_element_is_not_found(self):
         # given
@@ -39,7 +39,7 @@ class TestBinarySearch(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
         # Then
         self.assertEqual(binary_search(list1, n), -1)
 

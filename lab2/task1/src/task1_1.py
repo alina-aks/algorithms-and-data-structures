@@ -1,8 +1,12 @@
 import time
+import os
 from lab2.utils import inp, outp
 
-PATH_INPUT = '../files/input.txt'
-PATH_OUTPUT = '../files/output.txt'
+current_script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(current_script_dir)
+
+PATH_INPUT = os.path.join('..', '..', 'files', 'input.txt')
+PATH_OUTPUT = os.path.join('..', '..', 'files', 'output.txt')
 
 def merge(list1, list2):
     sorted_list = []
@@ -35,6 +39,7 @@ def merge_sort(list):
 def task1():
     n, s = inp(PATH_INPUT)
     res = str(merge_sort(s))
+    print("LAB2 Task1 answer:", res)
     outp(PATH_OUTPUT, res)
 
 if __name__ == "__main__":

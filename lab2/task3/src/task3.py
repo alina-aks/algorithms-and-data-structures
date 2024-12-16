@@ -1,9 +1,13 @@
 import time
+import os
 start = time.perf_counter()
 from lab2.utils import inp, outp
 
-PATH_INPUT = '../files/input.txt'
-PATH_OUTPUT = '../files/output.txt'
+current_script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(current_script_dir)
+
+PATH_INPUT = os.path.join('..', '..', 'files', 'input.txt')
+PATH_OUTPUT = os.path.join('..', '..', 'files', 'output.txt')
 
 def count_inverse(n, list1):
     cnt = 0
@@ -17,6 +21,7 @@ def count_inverse(n, list1):
 def task3():
     n, s = inp(PATH_INPUT)
     res = str(count_inverse(n, s))
+    print("LAB2 Task3 answer:", res)
     outp(PATH_OUTPUT, res)
 
 if __name__ == "__main__":

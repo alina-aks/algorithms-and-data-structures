@@ -4,7 +4,7 @@ from time import perf_counter
 from lab2.task5.src.task5 import chek_max_el
 
 class TestFindMax(unittest.TestCase):
-
+    print("Lab2 task5 test")
     def test_should_give_zero(self):
         # given
         list1 = [1, 2, 3, 4]
@@ -20,7 +20,7 @@ class TestFindMax(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
     def test1_should_give_one(self):
         # Given
@@ -40,7 +40,7 @@ class TestFindMax(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
     def test2_should_give_one(self):
         # Given
@@ -60,4 +60,7 @@ class TestFindMax(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
+
+if __name__ == '__main__':
+    unittest.main()

@@ -6,6 +6,7 @@ from lab2.task5.src.task5 import find_max_elem
 from lab2.task7.src.task7 import find_max_sum
 
 class TestFindMax(unittest.TestCase):
+    print("Lab2 task7 test")
     def test_should_give_max_list(self):
         # given
         list1 = [184, 343, -352, -4, 583,-248, 57, 34, 3, -5]
@@ -21,7 +22,7 @@ class TestFindMax(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
     def test_should_give_the_same_sorted_list(self):
         # given
@@ -38,7 +39,7 @@ class TestFindMax(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
     def test_should_give_empty_list(self):
         # given
@@ -55,7 +56,7 @@ class TestFindMax(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
     def test_should_give_max_list_from_large_list(self):
         # given
@@ -72,5 +73,7 @@ class TestFindMax(unittest.TestCase):
 
         # then
         self.assertEqual(result, expect_result)
-        self.assertLessEqual(result, expect_result, f"Значение {result_time} превышает порог {expected_time}")
+        self.assertLessEqual(result_time.total_seconds(), expected_time, f"Значение {result_time} превышает порог {expected_time}")
 
+if __name__ == '__main__':
+    unittest.main()

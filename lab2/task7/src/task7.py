@@ -1,9 +1,13 @@
 import time
+import os
 start = time.perf_counter()
 from lab2.utils import inp, outp
 
-PATH_INPUT = '../files/input.txt'
-PATH_OUTPUT = '../files/output.txt'
+current_script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(current_script_dir)
+
+PATH_INPUT = os.path.join('..', '..', 'files', 'input.txt')
+PATH_OUTPUT = os.path.join('..', '..', 'files', 'output.txt')
 
 def find_max_sum(list):
     max_sum = float("-inf")
@@ -25,6 +29,7 @@ def find_max_sum(list):
 def task7():
     n, s = inp(PATH_INPUT)
     res = str(find_max_sum(s))
+    print("LAB2 Task7 answer:", res)
     outp(PATH_OUTPUT, res)
 
 if __name__ == "__main__":
